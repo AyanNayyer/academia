@@ -1,0 +1,30 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# Environment variables
+.env/
+.env
+
+# Logs & temp files
+logs/
+*.log
+yarn-error.log
+.pnpm-debug.log
+.npmrc
+
+# Build output
+dist/
+build/
+.cache/
+.vite/
+.vscode/
+
+# OS & Editor-specific files
+.DS_Store/
+.DS_Store
+
+.pytest_cache/
