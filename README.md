@@ -1,4 +1,4 @@
-# Team31 Project
+# Academia
 
 A modern frontend application built with Vue.js and Vite. This project provides a user-friendly interface for managing courses, deadlines, feedback, and more, tailored for students, instructors, and administrators.
 
