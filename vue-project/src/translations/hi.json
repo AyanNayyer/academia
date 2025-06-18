@@ -1,0 +1,100 @@
+{
+  "dashboard": {
+    "welcome": "वापसी पर स्वागत है,",
+    "learning_journey": "आपकी सीखने की यात्रा जारी है",
+    "logout": "लॉगआउट",
+    "stats": {
+      "current_cgpa": "वर्तमान CGPA",
+      "upcoming_deadlines": "आगामी समय सीमा",
+      "course_progress": "पाठ्यक्रम प्रगति",
+      "study_streak": "अध्ययन श्रृंखला",
+      "from_last_semester": "पिछले सेमेस्टर से",
+      "next_in_days": "{days} दिनों में अगला",
+      "no_upcoming_deadlines": "कोई आगामी समय सीमा नहीं",
+      "on_track": "सही रास्ते पर",
+      "keep_it_up": "इसे जारी रखें!"
+    },
+    "ai_assistants": {
+      "handbook_assistant": "हैंडबुक सहायक",
+      "continue_to_chat": "चैट जारी रखें",
+      "ai_insights": "AI अंतर्दृष्टि",
+      "view_insights": "अंतर्दृष्टि देखें",
+      "video_learning_ai": "वीडियो लर्निंग AI सहायक",
+      "watch_learn": "देखें और सीखें",
+      "features": {
+        "rag_powered": {
+          "title": "RAG-संचालित प्रतिक्रियाएं",
+          "description": "अपने पाठ्यक्रम सामग्री से तुरंत सटीक उत्तर प्राप्त करें"
+        },
+        "multi_course": {
+          "title": "बहु-पाठ्यक्रम समर्थन",
+          "description": "सभी विषयों के लिए एक सहायक"
+        },
+        "learning_analytics": {
+          "title": "सीखने का विश्लेषण",
+          "description": "अपनी प्रगति को ट्रैक करें और विकास क्षेत्रों की पहचान करें"
+        },
+        "personalized_recommendations": {
+          "title": "व्यक्तिगत सिफारिशें",
+          "description": "आपकी सीखने की शैली के अनुरूप सुझाव प्राप्त करें"
+        },
+        "learn_from_video": {
+          "title": "किसी भी वीडियो से सीखें",
+          "description": "सीखना शुरू करने के लिए YouTube URL या प्लेलिस्ट ID पेस्ट करें"
+        },
+        "realtime_qa": {
+          "title": "रीयल-टाइम प्रश्न-उत्तर",
+          "description": "वीडियो देखते समय वीडियो सामग्री के बारे में प्रश्न पूछें"
+        },
+        "concept_breakdown": {
+          "title": "अवधारणा विश्लेषण",
+          "description": "जटिल विषयों के विस्तृत स्पष्टीकरण प्राप्त करें"
+        },
+        "auto_notes": {
+          "title": "स्वचालित नोट्स",
+          "description": "अपने वीडियो व्याख्यान से महत्वपूर्ण बिंदु सहेजें"
+        }
+      }
+    },
+    "sections": {
+      "upcoming_deadlines": "आगामी समय सीमा",
+      "view_all": "सभी देखें",
+      "loading_deadlines": "समय सीमा लोड हो रही है...",
+      "no_deadlines_found": "कोई आगामी समय सीमा नहीं मिली",
+      "days_left": "{days} दिन शेष",
+      "course_progress": "पाठ्यक्रम प्रगति",
+      "details": "विवरण",
+      "recent_activity": "हाल की गतिविधि",
+      "faculty_feedback": "संकाय प्रतिक्रिया",
+      "give_feedback": "प्रतिक्रिया दें",
+      "study_timer": "अध्ययन टाइमर",
+      "quick_links": "त्वरित लिंक"
+    },
+    "feedback": {
+      "direct_feedback": "सीधी प्रतिक्रिया",
+      "direct_feedback_desc": "संकाय सदस्यों के साथ अपने विचार साझा करें",
+      "course_improvement": "पाठ्यक्रम सुधार",
+      "course_improvement_desc": "अपने सीखने के अनुभव को बेहतर बनाने में मदद करें"
+    },
+    "timer": {
+      "start": "शुरू करें",
+      "stop": "रोकें",
+      "todays_focus_time": "आज का फोकस समय",
+      "weekly_goal": "साप्ताहिक लक्ष्य"
+    },
+    "quick_links": {
+      "library": "पुस्तकालय",
+      "notes": "नोट्स",
+      "calendar": "कैलेंडर",
+      "grades": "ग्रेड",
+      "forums": "फोरम",
+      "messages": "संदेश"
+    },
+    "activities": {
+      "submitted_assignment": "असाइनमेंट {number} जमा किया",
+      "completed_quiz": "क्विज {number} पूरा किया",
+      "study_session": "अध्ययन सत्र: {hours} घंटे"
+    },
+    "footer": "DevAstators द्वारा ❤️ के साथ अपडेट किया गया"
+  }
+} 

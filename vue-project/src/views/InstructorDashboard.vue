@@ -111,7 +111,7 @@
     </div>
 
     <footer class="dashboard-footer">
-      Made with ❤️ by DevAstators
+      Made with ❤️ by Ayan
     </footer>
   </div>
 </template>

@@ -1,0 +1,100 @@
+{
+  "dashboard": {
+    "welcome": "Welcome back,",
+    "learning_journey": "Your learning journey continues",
+    "logout": "Logout",
+    "stats": {
+      "current_cgpa": "Current CGPA",
+      "upcoming_deadlines": "Upcoming Deadlines",
+      "course_progress": "Course Progress",
+      "study_streak": "Study Streak",
+      "from_last_semester": "from last semester",
+      "next_in_days": "Next in {days} days",
+      "no_upcoming_deadlines": "No upcoming deadlines",
+      "on_track": "On track",
+      "keep_it_up": "Keep it up!"
+    },
+    "ai_assistants": {
+      "handbook_assistant": "Handbook Assistant",
+      "continue_to_chat": "Continue to Chat",
+      "ai_insights": "AI Insights",
+      "view_insights": "View Insights",
+      "video_learning_ai": "Video Learning AI Assistant",
+      "watch_learn": "Watch & Learn",
+      "features": {
+        "rag_powered": {
+          "title": "RAG-Powered Responses",
+          "description": "Get accurate answers from your course materials instantly"
+        },
+        "multi_course": {
+          "title": "Multi-Course Support",
+          "description": "One assistant for all your subjects"
+        },
+        "learning_analytics": {
+          "title": "Learning Analytics",
+          "description": "Track your progress and identify growth areas"
+        },
+        "personalized_recommendations": {
+          "title": "Personalized Recommendations",
+          "description": "Get suggestions tailored to your learning style"
+        },
+        "learn_from_video": {
+          "title": "Learn from Any Video",
+          "description": "Paste YouTube URLs or playlist IDs to start learning"
+        },
+        "realtime_qa": {
+          "title": "Real-time Q&A",
+          "description": "Ask questions about video content as you watch"
+        },
+        "concept_breakdown": {
+          "title": "Concept Breakdown",
+          "description": "Get detailed explanations of complex topics"
+        },
+        "auto_notes": {
+          "title": "Auto-Generated Notes",
+          "description": "Save key points from your video lectures"
+        }
+      }
+    },
+    "sections": {
+      "upcoming_deadlines": "Upcoming Deadlines",
+      "view_all": "View All",
+      "loading_deadlines": "Loading deadlines...",
+      "no_deadlines_found": "No upcoming deadlines found",
+      "days_left": "{days} days left",
+      "course_progress": "Course Progress",
+      "details": "Details",
+      "recent_activity": "Recent Activity",
+      "faculty_feedback": "Faculty Feedback",
+      "give_feedback": "Give Feedback",
+      "study_timer": "Study Timer",
+      "quick_links": "Quick Links"
+    },
+    "feedback": {
+      "direct_feedback": "Direct Feedback",
+      "direct_feedback_desc": "Share your thoughts with faculty members",
+      "course_improvement": "Course Improvement",
+      "course_improvement_desc": "Help enhance your learning experience"
+    },
+    "timer": {
+      "start": "Start",
+      "stop": "Stop",
+      "todays_focus_time": "Today's Focus Time",
+      "weekly_goal": "Weekly Goal"
+    },
+    "quick_links": {
+      "library": "Library",
+      "notes": "Notes",
+      "calendar": "Calendar",
+      "grades": "Grades",
+      "forums": "Forums",
+      "messages": "Messages"
+    },
+    "activities": {
+      "submitted_assignment": "Submitted Assignment {number}",
+      "completed_quiz": "Completed Quiz {number}",
+      "study_session": "Study Session: {hours} hours"
+    },
+    "footer": "Updated with ❤️ by DevAstators"
+  }
+} 

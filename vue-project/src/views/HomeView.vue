@@ -3,7 +3,6 @@
     <nav class="navbar">
       <a href="#" class="logo">
         <img src="https://kokonutui.com/logo.svg" alt="Logo" width="24" height="24">
-        ProjSE
       </a>
 
       <button class="hamburger" aria-label="Toggle navigation" @click="toggleMobileMenu">
@@ -29,7 +28,6 @@
       <div class="content">
         <div class="badge">
           <img src="https://kokonutui.com/logo.svg" alt="Logo" width="20" height="20">
-          Team 31
         </div>
 
         <h1 class="title">

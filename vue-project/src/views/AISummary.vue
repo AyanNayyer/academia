@@ -121,7 +121,7 @@
       </div>
   
       <footer class="dashboard-footer">
-        Made with ❤️ by Commander in Chief
+        Made with ❤️ by Ayan
       </footer>
     </div>
   </template>

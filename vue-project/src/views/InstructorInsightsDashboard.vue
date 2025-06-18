@@ -247,7 +247,7 @@
     </div>
 
     <footer class="dashboard-footer">
-      Made with ❤️ by DevAstators, And Special thanks to Dobby
+      Made with ❤️ by Ayan
     </footer>
   </div>
 </template>

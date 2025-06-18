@@ -1,43 +1,44 @@
 <template>
   <div :class="isDarkMode ? 'dark-mode' : 'light-mode'" class="dashboard-container">
+    <LanguageSwitcher />
     <div class="dashboard-content">
       <!-- Welcome Section -->
       <div class="header-content">
         <!-- Title and Subtitle -->
         <div class="title-section">
           <h1 class="dashboard-title">
-            <span class="title-regular">Welcome back,</span>
+            <span class="title-regular">{{ $t('dashboard.welcome') }}</span>
             <span class="title-fancy">{{ studentName }}</span>
           </h1>
-          <p class="dashboard-subtitle">Your learning journey continues</p>
+          <p class="dashboard-subtitle">{{ $t('dashboard.learning_journey') }}</p>
         </div>
 
         <!-- Right: Logout Button -->
-        <button @click="logoutUser" class="primary-btn">Logout</button>
+        <button @click="logoutUser" class="primary-btn">{{ $t('dashboard.logout') }}</button>
       </div>
 
       <!-- Quick Stats -->
       <div class="stats-grid">
         <div class="stat-card">
-          <h3>Current CGPA</h3>
+          <h3>{{ $t('dashboard.stats.current_cgpa') }}</h3>
           <p class="stat-value">3.85</p>
-          <p class="stat-trend positive">↑ 0.1 from last semester</p>
+          <p class="stat-trend positive">{{ $t('dashboard.stats.from_last_semester') }}</p>
         </div>
         <div class="stat-card">
-          <h3>Upcoming Deadlines</h3>
+          <h3>{{ $t('dashboard.stats.upcoming_deadlines') }}</h3>
           <p class="stat-value">{{ upcomingDeadlines.length }}</p>
-          <p class="stat-trend" v-if="upcomingDeadlines.length > 0">Next in {{ upcomingDeadlines[0].daysLeft }} days</p>
-          <p class="stat-trend" v-else>No upcoming deadlines</p>
+          <p class="stat-trend" v-if="upcomingDeadlines.length > 0">{{ $t('dashboard.stats.next_in_days', { days: upcomingDeadlines[0].daysLeft }) }}</p>
+          <p class="stat-trend" v-else>{{ $t('dashboard.stats.no_upcoming_deadlines') }}</p>
         </div>
         <div class="stat-card">
-          <h3>Course Progress</h3>
+          <h3>{{ $t('dashboard.stats.course_progress') }}</h3>
           <p class="stat-value">78%</p>
-          <p class="stat-trend positive">On track</p>
+          <p class="stat-trend positive">{{ $t('dashboard.stats.on_track') }}</p>
         </div>
         <div class="stat-card">
-          <h3>Study Streak</h3>
+          <h3>{{ $t('dashboard.stats.study_streak') }}</h3>
           <p class="stat-value">5 days</p>
-          <p class="stat-trend">Keep it up!</p>
+          <p class="stat-trend">{{ $t('dashboard.stats.keep_it_up') }}</p>
         </div>
       </div>
 
@@ -46,15 +47,15 @@
         <!-- Handbook Assistant (Left) -->
         <div class="dashboard-card handbook-assistant-card">
           <div class="card-header">
-            <h2>Handbook Assistant</h2>
-            <button class="action-btn" @click="navigateToChatbot">Continue to Chat</button>
+            <h2>{{ $t('dashboard.ai_assistants.handbook_assistant') }}</h2>
+            <button class="action-btn" @click="navigateToChatbot">{{ $t('dashboard.ai_assistants.continue_to_chat') }}</button>
           </div>
           <div class="chatbot-features">
             <div v-for="feature in chatbotFeatures" :key="feature.id" class="feature-item">
               <div class="feature-icon">{{ feature.icon }}</div>
               <div class="feature-info">
-                <h4>{{ feature.title }}</h4>
-                <p>{{ feature.description }}</p>
+                <h4>{{ $t(feature.titleKey) }}</h4>
+                <p>{{ $t(feature.descriptionKey) }}</p>
               </div>
             </div>
           </div>
@@ -63,15 +64,15 @@
         <!-- AI Insights (Right) -->
         <div class="dashboard-card ai-insights-card">
           <div class="card-header">
-            <h2>AI Insights</h2>
-            <button class="action-btn" @click="navigateToInsights">View Insights</button>
+            <h2>{{ $t('dashboard.ai_assistants.ai_insights') }}</h2>
+            <button class="action-btn" @click="navigateToInsights">{{ $t('dashboard.ai_assistants.view_insights') }}</button>
           </div>
           <div class="chatbot-features">
             <div v-for="feature in insightsFeatures" :key="feature.id" class="feature-item">
               <div class="feature-icon">{{ feature.icon }}</div>
               <div class="feature-info">
-                <h4>{{ feature.title }}</h4>
-                <p>{{ feature.description }}</p>
+                <h4>{{ $t(feature.titleKey) }}</h4>
+                <p>{{ $t(feature.descriptionKey) }}</p>
               </div>
             </div>
           </div>
@@ -81,15 +82,15 @@
       <!-- Video Learning AI Section -->
       <div class="dashboard-card video-chatbot-card">
         <div class="card-header">
-          <h2>Video Learning AI Assistant</h2>
-          <button class="action-btn" @click="navigateToVideoChatbot">Watch & Learn</button>
+          <h2>{{ $t('dashboard.ai_assistants.video_learning_ai') }}</h2>
+          <button class="action-btn" @click="navigateToVideoChatbot">{{ $t('dashboard.ai_assistants.watch_learn') }}</button>
         </div>
         <div class="chatbot-features">
           <div v-for="feature in videoChatbotFeatures" :key="feature.id" class="feature-item">
             <div class="feature-icon">{{ feature.icon }}</div>
             <div class="feature-info">
-              <h4>{{ feature.title }}</h4>
-              <p>{{ feature.description }}</p>
+              <h4>{{ $t(feature.titleKey) }}</h4>
+              <p>{{ $t(feature.descriptionKey) }}</p>
             </div>
           </div>
         </div>
@@ -100,17 +101,17 @@
         <!-- Upcoming Deadlines -->
         <div class="dashboard-card deadlines-card">
           <div class="card-header">
-            <h2>Upcoming Deadlines</h2>
-            <button class="view-all-btn" onclick="window.location.href='/deadline'">View All</button>
+            <h2>{{ $t('dashboard.sections.upcoming_deadlines') }}</h2>
+            <button class="view-all-btn" onclick="window.location.href='/deadline'">{{ $t('dashboard.sections.view_all') }}</button>
           </div>
           <div class="deadline-list" v-if="isLoadingDeadlines">
-            <div class="loading-indicator">Loading deadlines...</div>
+            <div class="loading-indicator">{{ $t('dashboard.sections.loading_deadlines') }}</div>
           </div>
           <div class="deadline-list" v-else-if="deadlineError">
             <div class="error-message">{{ deadlineError }}</div>
           </div>
           <div class="deadline-list" v-else-if="upcomingDeadlines.length === 0">
-            <div class="no-deadlines">No upcoming deadlines found</div>
+            <div class="no-deadlines">{{ $t('dashboard.sections.no_deadlines_found') }}</div>
           </div>
           <div class="deadline-list" v-else>
             <div v-for="deadline in upcomingDeadlines" :key="deadline.id" class="deadline-item">
@@ -119,7 +120,7 @@
                 <p>{{ deadline.course }}</p>
               </div>
               <div class="deadline-date" :class="{ 'urgent': deadline.daysLeft <= 2 }">
-                {{ deadline.daysLeft }} days left
+                {{ $t('dashboard.sections.days_left', { days: deadline.daysLeft }) }}
               </div>
             </div>
           </div>
@@ -128,8 +129,8 @@
         <!-- Course Progress -->
         <div class="dashboard-card progress-card">
           <div class="card-header">
-            <h2>Course Progress</h2>
-            <button class="view-all-btn" onclick="window.location.href='/studentresources'">Details</button>
+            <h2>{{ $t('dashboard.sections.course_progress') }}</h2>
+            <button class="view-all-btn" onclick="window.location.href='/studentresources'">{{ $t('dashboard.sections.details') }}</button>
           </div>
           <div class="progress-list">
             <div v-for="course in courses" :key="course.id" class="progress-item">
@@ -147,8 +148,8 @@
         <!-- Recent Activity -->
         <div class="dashboard-card activity-card">
           <div class="card-header">
-            <h2>Recent Activity</h2>
-            <button class="view-all-btn">View All</button>
+            <h2>{{ $t('dashboard.sections.recent_activity') }}</h2>
+            <button class="view-all-btn">{{ $t('dashboard.sections.view_all') }}</button>
           </div>
           <div class="activity-list">
             <div v-for="activity in recentActivities" :key="activity.id" class="activity-item">
@@ -156,7 +157,7 @@
                 {{ activity.icon }}
               </div>
               <div class="activity-info">
-                <h4>{{ activity.title }}</h4>
+                <h4>{{ $t(activity.titleKey, activity.params) }}</h4>
                 <p>{{ activity.timestamp }}</p>
               </div>
             </div>
@@ -166,22 +167,22 @@
         <!-- Faculty Feedback -->
         <div class="dashboard-card feedback-card">
           <div class="card-header">
-            <h2>Faculty Feedback</h2>
-            <button class="view-all-btn" @click="navigateToFeedback">Give Feedback</button>
+            <h2>{{ $t('dashboard.sections.faculty_feedback') }}</h2>
+            <button class="view-all-btn" @click="navigateToFeedback">{{ $t('dashboard.sections.give_feedback') }}</button>
           </div>
           <div class="feature-list">
             <div class="feature-item">
               <div class="feature-icon">🎯</div>
               <div class="feature-info">
-                <h4>Direct Feedback</h4>
-                <p>Share your thoughts with faculty members</p>
+                <h4>{{ $t('dashboard.feedback.direct_feedback') }}</h4>
+                <p>{{ $t('dashboard.feedback.direct_feedback_desc') }}</p>
               </div>
             </div>
             <div class="feature-item">
               <div class="feature-icon">📈</div>
               <div class="feature-info">
-                <h4>Course Improvement</h4>
-                <p>Help enhance your learning experience</p>
+                <h4>{{ $t('dashboard.feedback.course_improvement') }}</h4>
+                <p>{{ $t('dashboard.feedback.course_improvement_desc') }}</p>
               </div>
             </div>
           </div>
@@ -190,18 +191,18 @@
         <!-- Study Timer Card -->
         <div class="dashboard-card timer-card">
           <div class="card-header">
-            <h2>Study Timer</h2>
-            <button class="view-all-btn" @click="toggleTimer">{{ isTimerRunning ? 'Stop' : 'Start' }}</button>
+            <h2>{{ $t('dashboard.sections.study_timer') }}</h2>
+            <button class="view-all-btn" @click="toggleTimer">{{ isTimerRunning ? $t('dashboard.timer.stop') : $t('dashboard.timer.start') }}</button>
           </div>
           <div class="timer-content">
             <div class="timer-display">{{ formatTime(timerSeconds) }}</div>
             <div class="timer-stats">
               <div class="stat-item">
-                <span class="stat-label">Today's Focus Time</span>
+                <span class="stat-label">{{ $t('dashboard.timer.todays_focus_time') }}</span>
                 <span class="stat-value">2h 45m</span>
               </div>
               <div class="stat-item">
-                <span class="stat-label">Weekly Goal</span>
+                <span class="stat-label">{{ $t('dashboard.timer.weekly_goal') }}</span>
                 <span class="stat-value">75%</span>
               </div>
             </div>
@@ -211,7 +212,7 @@
         <!-- Quick Links Card -->
         <div class="dashboard-card quick-links-card">
           <div class="card-header">
-            <h2>Quick Links</h2>
+            <h2>{{ $t('dashboard.sections.quick_links') }}</h2>
           </div>
           <div class="links-grid">
             <a v-for="link in quickLinks"
@@ -219,7 +220,7 @@
                :href="link.url"
                class="quick-link-item">
               <div class="link-icon">{{ link.icon }}</div>
-              <span class="link-label">{{ link.label }}</span>
+              <span class="link-label">{{ $t(link.labelKey) }}</span>
             </a>
           </div>
         </div>
@@ -227,16 +228,20 @@
     </div>
 
     <footer class="dashboard-footer">
-      Updated with ❤️ by DevAstators
+      Made with ❤️ by Ayan
     </footer>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 
 export default {
   name: 'StudentDashboard',
+  components: {
+    LanguageSwitcher
+  },
   data() {
     return {
       isDarkMode: true,
@@ -251,54 +256,54 @@ export default {
         {
           id: 1,
           icon: '🤖',
-          title: 'RAG-Powered Responses',
-          description: 'Get accurate answers from your course materials instantly'
+          titleKey: 'dashboard.ai_assistants.features.rag_powered.title',
+          descriptionKey: 'dashboard.ai_assistants.features.rag_powered.description'
         },
         {
           id: 2,
           icon: '📚',
-          title: 'Multi-Course Support',
-          description: 'One assistant for all your subjects'
+          titleKey: 'dashboard.ai_assistants.features.multi_course.title',
+          descriptionKey: 'dashboard.ai_assistants.features.multi_course.description'
         }
       ],
       insightsFeatures: [
         {
           id: 1,
           icon: '📊',
-          title: 'Learning Analytics',
-          description: 'Track your progress and identify growth areas'
+          titleKey: 'dashboard.ai_assistants.features.learning_analytics.title',
+          descriptionKey: 'dashboard.ai_assistants.features.learning_analytics.description'
         },
         {
           id: 2,
           icon: '🧠',
-          title: 'Personalized Recommendations',
-          description: 'Get suggestions tailored to your learning style'
+          titleKey: 'dashboard.ai_assistants.features.personalized_recommendations.title',
+          descriptionKey: 'dashboard.ai_assistants.features.personalized_recommendations.description'
         }
       ],
       videoChatbotFeatures: [
         {
           id: 1,
           icon: '🎥',
-          title: 'Learn from Any Video',
-          description: 'Paste YouTube URLs or playlist IDs to start learning'
+          titleKey: 'dashboard.ai_assistants.features.learn_from_video.title',
+          descriptionKey: 'dashboard.ai_assistants.features.learn_from_video.description'
         },
         {
           id: 2,
           icon: '💬',
-          title: 'Real-time Q&A',
-          description: 'Ask questions about video content as you watch'
+          titleKey: 'dashboard.ai_assistants.features.realtime_qa.title',
+          descriptionKey: 'dashboard.ai_assistants.features.realtime_qa.description'
         },
         {
           id: 3,
           icon: '🔍',
-          title: 'Concept Breakdown',
-          description: 'Get detailed explanations of complex topics'
+          titleKey: 'dashboard.ai_assistants.features.concept_breakdown.title',
+          descriptionKey: 'dashboard.ai_assistants.features.concept_breakdown.description'
         },
         {
           id: 4,
           icon: '📝',
-          title: 'Auto-Generated Notes',
-          description: 'Save key points from your video lectures'
+          titleKey: 'dashboard.ai_assistants.features.auto_notes.title',
+          descriptionKey: 'dashboard.ai_assistants.features.auto_notes.description'
         }
       ],
       courses: [
@@ -307,9 +312,9 @@ export default {
         { id: 3, name: 'Software Testing', progress: 85 }
       ],
       recentActivities: [
-        { id: 1, type: 'submission', icon: '📝', title: 'Submitted Assignment 2', timestamp: '2 hours ago' },
-        { id: 2, type: 'quiz', icon: '✍️', title: 'Completed Quiz 3', timestamp: '1 day ago' },
-        { id: 3, type: 'study', icon: '📚', title: 'Study Session: 2 hours', timestamp: '2 days ago' }
+        { id: 1, type: 'submission', icon: '📝', titleKey: 'dashboard.activities.submitted_assignment', params: { number: 2 }, timestamp: '2 hours ago' },
+        { id: 2, type: 'quiz', icon: '✍️', titleKey: 'dashboard.activities.completed_quiz', params: { number: 3 }, timestamp: '1 day ago' },
+        { id: 3, type: 'study', icon: '📚', titleKey: 'dashboard.activities.study_session', params: { hours: 2 }, timestamp: '2 days ago' }
       ],
       facultyList: [
         { id: 1, name: 'Dr. Smith - Deep Learning' },
@@ -320,12 +325,12 @@ export default {
       timerSeconds: 0,
       timerInterval: null,
       quickLinks: [
-        { id: 1, icon: '📚', label: 'Library', url: '/library' },
-        { id: 2, icon: '📝', label: 'Notes', url: '/notes' },
-        { id: 3, icon: '📅', label: 'Calendar', url: '/calendar' },
-        { id: 4, icon: '📊', label: 'Grades', url: '/grades' },
-        { id: 5, icon: '💬', label: 'Forums', url: '/forums' },
-        { id: 6, icon: '📧', label: 'Messages', url: '/messages' }
+        { id: 1, icon: '📚', labelKey: 'dashboard.quick_links.library', url: '/library' },
+        { id: 2, icon: '📝', labelKey: 'dashboard.quick_links.notes', url: '/notes' },
+        { id: 3, icon: '📅', labelKey: 'dashboard.quick_links.calendar', url: '/calendar' },
+        { id: 4, icon: '📊', labelKey: 'dashboard.quick_links.grades', url: '/grades' },
+        { id: 5, icon: '💬', labelKey: 'dashboard.quick_links.forums', url: '/forums' },
+        { id: 6, icon: '📧', labelKey: 'dashboard.quick_links.messages', url: '/messages' }
       ]
     }
   },
